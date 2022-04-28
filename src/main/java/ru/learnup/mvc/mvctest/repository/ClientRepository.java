@@ -7,4 +7,8 @@ import ru.learnup.mvc.mvctest.entity.Client;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
+
+//    public Client findClientByEmailEquals (String email);
+
+
 }

@@ -3,26 +3,26 @@ package ru.learnup.mvc.mvctest.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Client")
+@Table(name = "client")
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "client_id")
-    private long clientID;
+    private int clientID;
 
     @Column(name = "initials_client")
     private String initialsClient;
 
-    @Column(name = "birth_date")
-    private String birthDate;
+    @Column(name = "email")
+    private String email;
 
     public Client() {
     }
 
     public Client(String initialsClient, String birthDate) {
         this.initialsClient = initialsClient;
-        this.birthDate = birthDate;
+        this.email = email;
     }
 
     public String getInitialsClient() {
@@ -33,11 +33,15 @@ public class Client {
         this.initialsClient = initialsClient;
     }
 
-    public String getBirthDate() {
-        return birthDate;
+    public String getEmail() {
+        return email;
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getClientID() {
+        return clientID;
     }
 }

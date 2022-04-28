@@ -19,8 +19,7 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-
-    public Order getOrderById(int id) {
+      public Order getOrderById(int id) {
         Order order = null;
         Optional<Order> o = orderRepository.findById(id);
         if (o.isPresent()) {
