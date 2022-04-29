@@ -14,6 +14,7 @@ import ru.learnup.mvc.mvctest.entity.Book;
 import ru.learnup.mvc.mvctest.entity.Client;
 import ru.learnup.mvc.mvctest.entity.Order;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -89,6 +90,31 @@ public class RESTController {
     public List<Client> showAllClients() {
         List<Client> allClients = clientService.getAllClients();
         return allClients;
+    }
+
+    @PutMapping("/clients")
+    public Client updateClient(@RequestBody Client client) {
+        clientService.saveClient(client);
+        return client;
+    }
+
+    @GetMapping("/orders")
+    public List<Order> showAllOrder() {
+        List<Order> allOrder = orderService.getAllOrder();
+        return allOrder;
+    }
+
+
+    @GetMapping("/orders/")
+    public List<Order> showAllOrder(@RequestParam("clientID") int id) {
+        List<Order> allOrder = orderService.getAllOrder();
+        List<Order> orderClient = new ArrayList<>();
+        for (Order o: allOrder) {
+           if (o.getClient().getClientID()==id) {
+               orderClient.add(o);
+           }
+        }
+        return orderClient;
     }
 
 
